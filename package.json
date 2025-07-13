@@ -1,0 +1,16 @@
+{
+  "name": "orql-framework",
+  "version": "0.1.0",
+  "description": "Observer-Relational Quantum Logic Web Interface",
+  "scripts": {
+    "dev": "cd web && python -m http.server 8000",
+    "test": "echo 'No web tests yet'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/orql-framework.git"
+  },
+  "keywords": ["quantum", "physics", "simulation"],
+  "author": "Your Name",
+  "license": "MIT"
+}
