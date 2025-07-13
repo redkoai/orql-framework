@@ -7,7 +7,171 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Content from previous HTML artifact goes here -->
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">ORQL</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#concept">Concept</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#formalism">Formalism</a></li>
+                <li><a href="#paper">Paper</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>ORQL</h1>
+            <p>Observer-Relational Quantum Logic</p>
+            <p class="hero-subtitle">A new framework where quantum collapse depends on the observer's path through an information field</p>
+            <div class="cta-buttons">
+                <a href="#demo" class="cta-button primary-button">Try Interactive Demo</a>
+                <a href="#paper" class="cta-button secondary-button">Read the Paper</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section id="concept" class="section-dark">
+        <h2>The Core Concept</h2>
+        <div class="container">
+            <p class="section-intro">
+                What if quantum collapse isn't universal, but depends on who's observing?
+            </p>
+            
+            <div class="demo-container">
+                <h3>Key Ideas</h3>
+                <ul class="key-ideas-list">
+                    <li>
+                        <span class="bullet">▶</span>
+                        <strong>Observer-Dependent Collapse:</strong> Different observers collapse the same quantum state differently
+                    </li>
+                    <li>
+                        <span class="bullet">▶</span>
+                        <strong>The Ξ Field:</strong> A binary information substrate that all observers traverse
+                    </li>
+                    <li>
+                        <span class="bullet">▶</span>
+                        <strong>Sequencer Function:</strong> Maps each observer's state to their unique path through Ξ
+                    </li>
+                    <li>
+                        <span class="bullet">▶</span>
+                        <strong>Divergence (Δ):</strong> Quantifies how different observers' realities become
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="section-light">
+        <h2>Interactive Demo</h2>
+        <div class="demo-container">
+            <h3 class="demo-title">Two Observers, One Quantum State</h3>
+            <p class="demo-subtitle">
+                Watch how Alice and Bob measure the same |ψ⟩ = 0.775|0⟩ + 0.632|1⟩ but get different results
+            </p>
+            
+            <div id="xiFieldContainer" class="xi-field-container">
+                <div id="xiField" class="xi-field"></div>
+                <div id="aliceMarker" class="observer-marker alice-marker">A</div>
+                <div id="bobMarker" class="observer-marker bob-marker">B</div>
+            </div>
+            
+            <div class="controls">
+                <button id="runButton" class="control-button" onclick="orql.toggleSimulation()">Run Simulation</button>
+                <button id="stepButton" class="control-button" onclick="orql.stepSimulation()">Single Step</button>
+                <button id="resetButton" class="control-button" onclick="orql.resetSimulation()">Reset</button>
+            </div>
+            
+            <div class="results">
+                <div class="result-card">
+                    <h4>Alice (Seed: 42)</h4>
+                    <div id="aliceHistory" class="measurement-history"></div>
+                    <p>Position: <span id="alicePos">42</span></p>
+                    <p>P(|0⟩): <span id="aliceP0">—</span></p>
+                </div>
+                
+                <div class="result-card">
+                    <h4>Bob (Seed: 137)</h4>
+                    <div id="bobHistory" class="measurement-history"></div>
+                    <p>Position: <span id="bobPos">137</span></p>
+                    <p>P(|0⟩): <span id="bobP0">—</span></p>
+                </div>
+                
+                <div class="result-card">
+                    <h4>Divergence</h4>
+                    <p class="divergence-value">
+                        Δ = <span id="divergence">0.000</span>
+                    </p>
+                    <p class="agreement-rate">Agreement Rate: <span id="agreement">—</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mathematical Formalism -->
+    <section id="formalism" class="section-dark">
+        <h2>Mathematical Formalism</h2>
+        <div class="math-section">
+            <h3>Core Definitions</h3>
+            
+            <div class="equation">
+                <strong>The Ξ Field:</strong><br>
+                Ξ: ℕ → {0,1}<br>
+                A binary information substrate mapping positions to bits
+            </div>
+            
+            <div class="equation">
+                <strong>Observer State:</strong><br>
+                Ω = (s, p, ε, H)<br>
+                where s = seed, p = position, ε = entanglement, H = history
+            </div>
+            
+            <div class="equation">
+                <strong>Sequencer Function:</strong><br>
+                Ωˢ: Observer × QuantumState × Ξ → Position<br>
+                Determines observer's path through Ξ based on their state
+            </div>
+            
+            <div class="equation">
+                <strong>Collapse Rule:</strong><br>
+                C_Ω(|ψ⟩) = |0⟩ if Σ Ξ(p+i) ≤ θ(Ω, |ψ⟩)<br>
+                C_Ω(|ψ⟩) = |1⟩ otherwise
+            </div>
+            
+            <div class="equation">
+                <strong>Divergence Measure:</strong><br>
+                Δ(Ω₁, Ω₂) = λ₁ · d_position + λ₂ · d_history<br>
+                Quantifies how different two observers' experiences are
+            </div>
+        </div>
+    </section>
+
+    <!-- Paper Section -->
+    <section id="paper" class="section-light">
+        <h2>Read the Paper</h2>
+        <div class="paper-section">
+            <h3>Observer-Relational Quantum Logic (ORQL):</h3>
+            <p class="paper-subtitle">A Symbolic Framework for Subjective Collapse and Divergent Realities</p>
+            <a href="#" class="cta-button primary-button" onclick="alert('Paper download will be available after publication on viXra')">Download Paper (PDF)</a>
+            <p class="paper-status">Submission to viXra pending</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>ORQL - Observer-Relational Quantum Logic</p>
+        <p class="footer-description">
+            A new framework for understanding quantum measurement through observer-dependent collapse
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/orql-core.js"></script>
     <script src="js/simulation.js"></script>
     <script src="js/ui.js"></script>
 </body>
