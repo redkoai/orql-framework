@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORQL Contact & Community Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">ORQL</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="playground.html">Playground</a></li>
+                <li><a href="paper.html">Research</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="#" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1>Connect with ORQL</h1>
+            <p class="hero-subtitle">Join the conversation about observer-dependent reality</p>
+        </div>
+    </section>
+
+    <!-- Live Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number" id="visitor-count">12,847</div>
+                <div class="stat-label">Site Visitors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="member-count">483</div>
+                <div class="stat-label">Community Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="sim-count">5,291</div>
+                <div class="stat-label">Simulations Run</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="discussion-count">1,024</div>
+                <div class="stat-label">Active Discussions</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Comments Section -->
+    <section class="section-dark">
+        <div class="content-container">
+            <h2>Community Voices</h2>
+            <p class="section-subtitle">What people are saying about ORQL</p>
+            
+            <!-- Floating Comments Bubbles -->
+            <div class="comments-cloud">
+                <div class="comment-bubble bubble-1" data-author="Sarah K.">
+                    "Finally, a framework that makes sense of subjective experience in QM!"
+                </div>
+                <div class="comment-bubble bubble-2" data-author="Dr. Chen">
+                    "The simulations really helped me grasp observer divergence"
+                </div>
+                <div class="comment-bubble bubble-3" data-author="Alex M.">
+                    "ORQL bridges the gap between philosophy and computation beautifully"
+                </div>
+                <div class="comment-bubble bubble-4" data-author="Jordan">
+                    "This changes how I think about measurement completely"
+                </div>
+                <div class="comment-bubble bubble-5" data-author="Prof. Williams">
+                    "Compelling approach to the measurement problem"
+                </div>
+                <div class="comment-bubble bubble-6" data-author="Maya">
+                    "The community here asks the right questions"
+                </div>
+            </div>
+            
+            <!-- Add Comment Form -->
+            <div class="add-comment-section">
+                <h3>Share Your Thoughts</h3>
+                <form id="comment-form" class="comment-form">
+                    <input type="text" id="comment-name" placeholder="Your Name" required>
+                    <textarea id="comment-text" placeholder="What do you think about ORQL?" rows="3" required></textarea>
+                    <div class="form-footer">
+                        <span class="char-count"><span id="char-current">0</span>/280</span>
+                        <button type="submit" class="submit-comment">Post Comment</button>
+                    </div>
+                </form>
+                <p class="moderation-note">Comments are moderated to maintain quality discussion</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Forms Section -->
+    <section class="section-light">
+        <div class="content-container">
+            <h2>Get in Touch</h2>
+            
+            <div class="contact-grid">
+                <!-- General Contact -->
+                <div class="contact-card">
+                    <h3>General Inquiries</h3>
+                    <p>Questions about ORQL, collaborations, or just want to chat?</p>
+                    <form class="contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="4" required></textarea>
+                        <button type="submit" class="cta-button primary-button">Send Message</button>
+                    </form>
+                </div>
+                
+                <!-- Join Community -->
+                <div class="contact-card">
+                    <h3>Join the Community</h3>
+                    <p>Become part of the ORQL research community</p>
+                    <form class="join-form" id="join-community-form">
+                        <input type="text" placeholder="Name" required>
+                        <input type="email" placeholder="Email" required>
+                        <select required>
+                            <option value="">I'm interested in...</option>
+                            <option value="research">Research & Theory</option>
+                            <option value="coding">Coding & Simulations</option>
+                            <option value="philosophy">Philosophy & Implications</option>
+                            <option value="learning">Learning & Discussion</option>
+                        </select>
+                        <textarea placeholder="Tell us about your interest in ORQL (optional)" rows="3"></textarea>
+                        <button type="submit" class="cta-button secondary-button">Join Community</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Direct Contact -->
+            <div class="direct-contact">
+                <h3>Direct Contact</h3>
+                <p>For research collaborations, media inquiries, or speaking requests:</p>
+                <a href="mailto:research@theredko.com" class="email-link">research@theredko.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="content-container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Stay Updated</h2>
+                    <p>Get monthly insights on ORQL developments, new simulations, and community highlights</p>
+                </div>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit" class="newsletter-button">Subscribe</button>
+                </form>
+            </div>
+            <p class="newsletter-note">We respect your inbox. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- Community Guidelines -->
+    <section class="section-dark">
+        <div class="content-container">
+            <h2>Community Guidelines</h2>
+            <div class="guidelines-grid">
+                <div class="guideline">
+                    <span class="guideline-icon">💡</span>
+                    <h4>Be Curious</h4>
+                    <p>Ask questions, challenge assumptions, explore ideas</p>
+                </div>
+                <div class="guideline">
+                    <span class="guideline-icon">🤝</span>
+                    <h4>Be Respectful</h4>
+                    <p>Disagree with ideas, not people. Keep it constructive.</p>
+                </div>
+                <div class="guideline">
+                    <span class="guideline-icon">🚀</span>
+                    <h4>Be Bold</h4>
+                    <p>Share wild ideas. The best insights often seem crazy at first.</p>
+                </div>
+                <div class="guideline">
+                    <span class="guideline-icon">❤️</span>
+                    <h4>Be Kind</h4>
+                    <p>We're all trying to understand reality together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>ORQL - Observer-Relational Quantum Logic</p>
+        <p class="footer-description">
+            A new framework for understanding quantum measurement through observer-dependent collapse
+        </p>
+    </footer>
+
+    <!-- Comment Moderation & Analytics Script -->
+    <script src="js/contact-community.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

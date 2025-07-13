@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORQL Playground - Interactive Simulations</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/playground.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">ORQL</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#" class="active">Playground</a></li>
+                <li><a href="paper.html">Research</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Playground Hero -->
+    <section class="playground-hero">
+        <div class="hero-content">
+            <h1>ORQL Playground</h1>
+            <p class="hero-subtitle">Explore observer-dependent reality through interactive simulations</p>
+        </div>
+    </section>
+
+    <!-- Simulations Grid -->
+    <section class="section-dark">
+        <div class="content-container">
+            <h2>Choose Your Experiment</h2>
+            
+            <div class="simulations-grid">
+                <!-- Basic Demo -->
+                <div class="simulation-card" onclick="loadSimulation('basic')">
+                    <div class="sim-icon">🎯</div>
+                    <h3>Basic Observer Demo</h3>
+                    <p>Watch a single observer collapse quantum states and traverse the Ξ field</p>
+                    <div class="difficulty-badge easy">Beginner</div>
+                </div>
+                
+                <!-- Two Observer Comparison -->
+                <div class="simulation-card" onclick="loadSimulation('divergence')">
+                    <div class="sim-icon">👥</div>
+                    <h3>Observer Divergence</h3>
+                    <p>Compare how two observers with different seeds experience different realities</p>
+                    <div class="difficulty-badge medium">Intermediate</div>
+                </div>
+                
+                <!-- Bell Test -->
+                <div class="simulation-card" onclick="loadSimulation('bell')">
+                    <div class="sim-icon">🔔</div>
+                    <h3>Bell Inequality Test</h3>
+                    <p>Explore how ORQL handles entangled observers and Bell-type correlations</p>
+                    <div class="difficulty-badge hard">Advanced</div>
+                </div>
+                
+                <!-- Multi-Observer -->
+                <div class="simulation-card" onclick="loadSimulation('multi')">
+                    <div class="sim-icon">🌐</div>
+                    <h3>Multi-Observer Network</h3>
+                    <p>Visualize how consensus reality emerges from many observers</p>
+                    <div class="difficulty-badge hard">Advanced</div>
+                </div>
+                
+                <!-- Custom Playground -->
+                <div class="simulation-card" onclick="loadSimulation('custom')">
+                    <div class="sim-icon">🔧</div>
+                    <h3>Custom Parameters</h3>
+                    <p>Build your own ORQL experiment with full parameter control</p>
+                    <div class="difficulty-badge medium">Intermediate</div>
+                </div>
+                
+                <!-- Xi Field Explorer -->
+                <div class="simulation-card" onclick="loadSimulation('xi-explorer')">
+                    <div class="sim-icon">🗺️</div>
+                    <h3>Ξ Field Explorer</h3>
+                    <p>Visualize and analyze different Ξ field structures and patterns</p>
+                    <div class="difficulty-badge easy">Beginner</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Active Simulation Area -->
+    <section id="simulation-area" class="section-light" style="display: none;">
+        <div class="simulation-container">
+            <div class="sim-header">
+                <h2 id="sim-title">Simulation Title</h2>
+                <button class="close-sim" onclick="closeSimulation()">✕ Close</button>
+            </div>
+            
+            <div id="sim-content" class="sim-content">
+                <!-- Dynamic simulation content loads here -->
+            </div>
+            
+            <div class="sim-controls" id="sim-controls">
+                <!-- Dynamic controls load here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualization Gallery -->
+    <section class="section-dark">
+        <div class="content-container">
+            <h2>Visualization Gallery</h2>
+            
+            <div class="viz-gallery">
+                <div class="viz-item">
+                    <h4>Divergence Over Time</h4>
+                    <canvas id="divergence-chart" width="300" height="200"></canvas>
+                </div>
+                
+                <div class="viz-item">
+                    <h4>Ξ Field Heatmap</h4>
+                    <canvas id="xi-heatmap" width="300" height="200"></canvas>
+                </div>
+                
+                <div class="viz-item">
+                    <h4>Observer Paths</h4>
+                    <canvas id="path-viz" width="300" height="200"></canvas>
+                </div>
+                
+                <div class="viz-item">
+                    <h4>Consensus Formation</h4>
+                    <canvas id="consensus-viz" width="300" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorial Section -->
+    <section class="section-light">
+        <div class="content-container">
+            <h2>How to Use the Playground</h2>
+            
+            <div class="tutorial-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Choose a Simulation</h3>
+                        <p>Start with the Basic Demo if you're new, or jump into advanced experiments if you're familiar with ORQL</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Adjust Parameters</h3>
+                        <p>Each simulation lets you tweak quantum states, observer properties, and Ξ field characteristics</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Run & Observe</h3>
+                        <p>Watch how different configurations lead to different observer experiences and divergence patterns</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Export & Share</h3>
+                        <p>Save your results, export data, or share interesting findings with the community</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources -->
+    <section class="section-dark">
+        <div class="content-container">
+            <h2>Playground Resources</h2>
+            
+            <div class="resources-grid">
+                <a href="#" class="resource-card">
+                    <h4>📖 Simulation Guide</h4>
+                    <p>Detailed explanations of each simulation and what they demonstrate</p>
+                </a>
+                
+                <a href="#" class="resource-card">
+                    <h4>🎓 ORQL Tutorial</h4>
+                    <p>Learn the basics of ORQL theory before diving into simulations</p>
+                </a>
+                
+                <a href="#" class="resource-card">
+                    <h4>💾 Example Datasets</h4>
+                    <p>Pre-configured scenarios showcasing interesting ORQL phenomena</p>
+                </a>
+                
+                <a href="#" class="resource-card">
+                    <h4>🤝 Share Your Results</h4>
+                    <p>Submit interesting findings to our community gallery</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>ORQL - Observer-Relational Quantum Logic</p>
+        <p class="footer-description">
+            A new framework for understanding quantum measurement through observer-dependent collapse
+        </p>
+    </footer>
+
+    <!-- Playground Scripts -->
+    <script src="js/orql-core.js"></script>
+    <script src="js/playground.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+/* Contact & Community Hub Styles */
+
+.contact-hero {
+    min-height: 40vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(0, 242, 254, 0.1) 0%, transparent 70%);
+}
+
+/* Live Stats Section */
+.stats-section {
+    background: #0a0a0a;
+    padding: 0;
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+}
+
+.stats-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 242, 254, 0.1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #00f2fe;
+    margin-bottom: 0.5rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.stat-label {
+    color: #aaa;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Community Comments Cloud */
+.comments-cloud {
+    position: relative;
+    min-height: 400px;
+    margin: 3rem 0;
+}
+
+.comment-bubble {
+    position: absolute;
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    border-radius: 20px;
+    padding: 1.5rem;
+    max-width: 300px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: float-bubble 20s ease-in-out infinite;
+}
+
+.comment-bubble::before {
+    content: attr(data-author);
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: #1a1a2e;
+    padding: 0.2rem 0.8rem;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    color: #00f2fe;
+    border: 1px solid rgba(0, 242, 254, 0.3);
+}
+
+.comment-bubble:hover {
+    transform: scale(1.05);
+    background: rgba(0, 242, 254, 0.15);
+    box-shadow: 0 5px 20px rgba(0, 242, 254, 0.2);
+}
+
+/* Position bubbles */
+.bubble-1 { top: 10%; left: 5%; animation-delay: 0s; }
+.bubble-2 { top: 20%; right: 10%; animation-delay: 3s; }
+.bubble-3 { bottom: 30%; left: 15%; animation-delay: 6s; }
+.bubble-4 { top: 50%; right: 20%; animation-delay: 9s; }
+.bubble-5 { bottom: 10%; right: 30%; animation-delay: 12s; }
+.bubble-6 { top: 60%; left: 40%; animation-delay: 15s; }
+
+@keyframes float-bubble {
+    0%, 100% { transform: translate(0, 0) rotate(-2deg); }
+    25% { transform: translate(20px, -20px) rotate(1deg); }
+    50% { transform: translate(-20px, 10px) rotate(-1deg); }
+    75% { transform: translate(10px, 20px) rotate(2deg); }
+}
+
+/* Add Comment Section */
+.add-comment-section {
+    max-width: 600px;
+    margin: 3rem auto 0;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.comment-form input,
+.comment-form textarea {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    color: #fff;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+    outline: none;
+    border-color: rgba(0, 242, 254, 0.5);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.char-count {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.submit-comment {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    color: white;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.submit-comment:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
+}
+
+.moderation-note {
+    text-align: center;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+/* Contact Forms */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.contact-card h3 {
+    color: #00f2fe;
+    margin-bottom: 1rem;
+}
+
+.contact-card p {
+    color: #aaa;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form,
+.join-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea,
+.join-form input,
+.join-form textarea,
+.join-form select {
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+    color: #fff;
+    font-family: inherit;
+}
+
+.join-form select {
+    cursor: pointer;
+}
+
+.join-form select option {
+    background: #1a1a2e;
+}
+
+/* Direct Contact */
+.direct-contact {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+.email-link {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #00f2fe;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.email-link:hover {
+    color: #4facfe;
+    transform: translateY(-2px);
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background: linear-gradient(135deg, rgba(0, 242, 254, 0.1), rgba(79, 172, 254, 0.1));
+    padding: 4rem 2rem;
+}
+
+.newsletter-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.newsletter-text h2 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter-text p {
+    color: #aaa;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 1rem;
+    min-width: 350px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    padding: 1rem 1.5rem;
+    color: #fff;
+}
+
+.newsletter-button {
+    background: #fff;
+    color: #1a1a2e;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.newsletter-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+}
+
+.newsletter-note {
+    text-align: center;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+/* Community Guidelines */
+.guidelines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.guideline {
+    text-align: center;
+    padding: 2rem;
+}
+
+.guideline-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.guideline h4 {
+    color: #00f2fe;
+    margin-bottom: 0.5rem;
+}
+
+.guideline p {
+    color: #aaa;
+    font-size: 0.95rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .newsletter-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        min-width: 100%;
+    }
+    
+    .comment-bubble {
+        position: static;
+        margin: 1rem auto;
+        animation: none;
+    }
+    
+    .comments-cloud {
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

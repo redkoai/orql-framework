@@ -1,0 +1,235 @@
+/* Paper Page Specific Styles */
+
+.paper-page {
+    padding-top: 100px;
+    min-height: 100vh;
+}
+
+.paper-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.paper-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.paper-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.paper-meta {
+    color: #aaa;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.paper-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+/* Abstract Box */
+.abstract-box {
+    background: rgba(0, 242, 254, 0.05);
+    border: 1px solid rgba(0, 242, 254, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+.abstract-box h3 {
+    color: #00f2fe;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.abstract-box p {
+    color: #ddd;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.keywords {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: #aaa;
+}
+
+/* Paper Content */
+.paper-content {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    color: #ddd;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.paper-content h2 {
+    color: #00f2fe;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: left;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+}
+
+.paper-content h3 {
+    color: #4facfe;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.paper-content p {
+    margin-bottom: 1.2rem;
+    color: #ddd;
+}
+
+/* Paper Lists */
+.paper-list {
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.paper-list li {
+    margin-bottom: 0.8rem;
+    color: #ddd;
+}
+
+.paper-list li strong {
+    color: #00f2fe;
+}
+
+/* Links in paper */
+.link-highlight {
+    color: #00f2fe;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.link-highlight:hover {
+    color: #4facfe;
+}
+
+.link-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: #4facfe;
+    transition: width 0.3s ease;
+}
+
+.link-highlight:hover::after {
+    width: 100%;
+}
+
+/* Contact info */
+.contact-info {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* PDF Embed */
+.pdf-embed {
+    width: 100%;
+    height: 800px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    background: #000;
+}
+
+/* Code blocks in paper */
+.paper-content code {
+    background: rgba(0, 242, 254, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95em;
+    color: #00f2fe;
+}
+
+.paper-content pre {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(0, 242, 254, 0.1);
+}
+
+.paper-content pre code {
+    background: none;
+    padding: 0;
+    color: #ddd;
+}
+
+/* Blockquotes */
+.paper-content blockquote {
+    border-left: 3px solid #00f2fe;
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    color: #aaa;
+    font-style: italic;
+}
+
+/* Active nav state */
+.nav-links a.active {
+    color: #00f2fe;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .paper-container {
+        padding: 1rem;
+    }
+    
+    .paper-title {
+        font-size: 1.8rem;
+    }
+    
+    .paper-content {
+        padding: 1.5rem;
+    }
+    
+    .paper-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .paper-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .pdf-embed {
+        height: 500px;
+    }
+    
+    .paper-list {
+        margin-left: 1.2rem;
+    }
+    
+    .abstract-box {
+        padding: 1.5rem;
+    }
+}
