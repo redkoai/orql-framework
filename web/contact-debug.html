@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORQL Contact - Debug Mode</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <style>
+        .debug-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.9);
+            color: #0f0;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 400px;
+            z-index: 10000;
+            border: 1px solid #0f0;
+        }
+        .debug-panel h3 {
+            margin: 0 0 10px 0;
+            color: #0f0;
+        }
+        .debug-log {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+        }
+        .debug-log-entry {
+            margin: 5px 0;
+            padding: 5px;
+            background: rgba(0,255,0,0.1);
+            border-radius: 3px;
+        }
+        .connection-status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .connection-status.connected {
+            background: #4caf50;
+            color: white;
+        }
+        .connection-status.connecting {
+            background: #ff9800;
+            color: white;
+        }
+        .connection-status.error {
+            background: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Debug Panel -->
+    <div class="debug-panel">
+        <h3>🔍 Firebase Debug Panel</h3>
+        <div id="connection-status" class="connection-status connecting">
+            Connecting to Firebase...
+        </div>
+        <div>
+            <h4>Current Stats:</h4>
+            <div id="debug-stats">Loading...</div>
+        </div>
+        <div>
+            <h4>Test Actions:</h4>
+            <button onclick="testIncrement('visitor')">Add Visitor</button>
+            <button onclick="testIncrement('member')">Add Member</button>
+            <button onclick="testIncrement('simulation')">Add Simulation</button>
+            <button onclick="testIncrement('discussion')">Add Discussion</button>
+        </div>
+        <div class="debug-log" id="debug-log">
+            <h4>Activity Log:</h4>
+        </div>
+    </div>
+
+    <!-- Rest of your contact page content -->
+    <div id="navbar-container"></div>
+    
+    <section class="contact-hero">
+        <div class="hero-content">
+            <h1>Connect with ORQL</h1>
+            <p class="hero-subtitle">Join the conversation about observer-dependent reality</p>
+        </div>
+    </section>
+
+    <!-- Live Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number" id="visitor-count">-</div>
+                <div class="stat-label">Site Visitors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="member-count">-</div>
+                <div class="stat-label">Community Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="sim-count">-</div>
+                <div class="stat-label">Simulations Run</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="discussion-count">-</div>
+                <div class="stat-label">Active Discussions</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    
+    <!-- Debug Scripts -->
+    <script type="module">
+        import { db, doc, setDoc, onSnapshot, increment, serverTimestamp } from './js/firebase-init.js';
+        import statsManager from './js/stats-manager.js';
+        
+        const debugLog = document.getElementById('debug-log');
+        const connectionStatus = document.getElementById('connection-status');
+        const debugStats = document.getElementById('debug-stats');
+        
+        function log(message, type = 'info') {
+            const entry = document.createElement('div');
+            entry.className = 'debug-log-entry';
+            const time = new Date().toLocaleTimeString();
+            entry.innerHTML = `[${time}] ${message}`;
+            debugLog.appendChild(entry);
+            debugLog.scrollTop = debugLog.scrollHeight;
+            
+            // Also log to console
+            console.log(`[Debug] ${message}`);
+        }
+        
+        // Test connection
+        log('Initializing Firebase connection...');
+        
+        try {
+            // Monitor stats in real-time
+            const statsRef = doc(db, 'stats', 'global');
+            const unsubscribe = onSnapshot(statsRef, 
+                (doc) => {
+                    if (doc.exists()) {
+                        connectionStatus.className = 'connection-status connected';
+                        connectionStatus.textContent = '✅ Connected to Firebase';
+                        
+                        const data = doc.data();
+                        debugStats.innerHTML = `
+                            <div>Visitors: ${data.visitorCount || 0}</div>
+                            <div>Members: ${data.memberCount || 0}</div>
+                            <div>Simulations: ${data.simulationCount || 0}</div>
+                            <div>Discussions: ${data.discussionCount || 0}</div>
+                            <div>Last Update: ${data.lastUpdated?.toDate?.()?.toLocaleString() || 'Never'}</div>
+                        `;
+                        log('Stats updated successfully');
+                    } else {
+                        log('Stats document does not exist', 'warning');
+                    }
+                },
+                (error) => {
+                    connectionStatus.className = 'connection-status error';
+                    connectionStatus.textContent = '❌ Connection Error';
+                    log(`Error: ${error.message}`, 'error');
+                    console.error('Firebase error:', error);
+                }
+            );
+            
+            log('Real-time listener attached');
+            
+        } catch (error) {
+            connectionStatus.className = 'connection-status error';
+            connectionStatus.textContent = '❌ Initialization Error';
+            log(`Fatal error: ${error.message}`, 'error');
+            console.error('Initialization error:', error);
+        }
+        
+        // Test increment functions
+        window.testIncrement = async function(type) {
+            log(`Testing ${type} increment...`);
+            try {
+                const statsRef = doc(db, 'stats', 'global');
+                const field = {
+                    'visitor': 'visitorCount',
+                    'member': 'memberCount',
+                    'simulation': 'simulationCount',
+                    'discussion': 'discussionCount'
+                }[type];
+                
+                await setDoc(statsRef, {
+                    [field]: increment(1),
+                    lastUpdated: serverTimestamp()
+                }, { merge: true });
+                
+                log(`✅ ${type} incremented successfully`);
+            } catch (error) {
+                log(`❌ Error incrementing ${type}: ${error.message}`, 'error');
+            }
+        };
+        
+        // Log page load
+        log('Page loaded, tracking visit...');
+        statsManager.trackPageView('Contact & Community (Debug)');
+    </script>
+    
+    <!-- Firebase & Analytics Scripts -->
+    <script type="module" src="js/firebase-init.js"></script>
+    <script type="module" src="js/stats-manager.js"></script>
+    <script type="module" src="js/contact-community.js"></script>
+    <script type="module" src="js/test-firebase-connection.js"></script>
+    
+    <!-- Original Scripts -->
+    <script src="js/ui.js"></script>
+    <script src="js/components.js"></script>
+</body>
+</html>
