@@ -12,10 +12,10 @@
     <div id="navbar-container"></div>
 
     <!-- Contact Hero -->
-    <section class="contact-hero">
-        <div class="hero-content">
+    <section class="about-hero">
+        <div class="about-hero-content">
             <h1>Connect with ORQL</h1>
-            <p class="hero-subtitle">Join the conversation about observer-dependent reality</p>
+            <p class="hero-quote">Join the conversation about observer-dependent reality</p>
         </div>
     </section>
 
@@ -23,19 +23,19 @@
     <section class="stats-section">
         <div class="stats-container">
             <div class="stat-card">
-                <div class="stat-number" id="visitor-count">12,847</div>
+                <div class="stat-number" id="visitor-count">-</div>
                 <div class="stat-label">Site Visitors</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="member-count">483</div>
+                <div class="stat-number" id="member-count">-</div>
                 <div class="stat-label">Community Members</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="sim-count">5,291</div>
+                <div class="stat-number" id="sim-count">-</div>
                 <div class="stat-label">Simulations Run</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number" id="discussion-count">1,024</div>
+                <div class="stat-number" id="discussion-count">-</div>
                 <div class="stat-label">Active Discussions</div>
             </div>
         </div>
@@ -49,32 +49,34 @@
             
             <!-- Floating Comments Bubbles -->
             <div class="comments-cloud">
-                <div class="comment-bubble bubble-1" data-author="Sarah K.">
+                <!-- Static bubbles for initial display -->
+                <div class="comment-bubble bubble-1" data-author="Sarah K." data-static="true">
                     "Finally, a framework that makes sense of subjective experience in QM!"
                 </div>
-                <div class="comment-bubble bubble-2" data-author="Dr. Chen">
+                <div class="comment-bubble bubble-2" data-author="Dr. Chen" data-static="true">
                     "The simulations really helped me grasp observer divergence"
                 </div>
-                <div class="comment-bubble bubble-3" data-author="Alex M.">
+                <div class="comment-bubble bubble-3" data-author="Alex M." data-static="true">
                     "ORQL bridges the gap between philosophy and computation beautifully"
                 </div>
-                <div class="comment-bubble bubble-4" data-author="Jordan">
+                <div class="comment-bubble bubble-4" data-author="Jordan" data-static="true">
                     "This changes how I think about measurement completely"
                 </div>
-                <div class="comment-bubble bubble-5" data-author="Prof. Williams">
+                <div class="comment-bubble bubble-5" data-author="Prof. Williams" data-static="true">
                     "Compelling approach to the measurement problem"
                 </div>
-                <div class="comment-bubble bubble-6" data-author="Maya">
+                <div class="comment-bubble bubble-6" data-author="Maya" data-static="true">
                     "The community here asks the right questions"
                 </div>
+                <!-- Dynamic comments will be added here by JavaScript -->
             </div>
             
             <!-- Add Comment Form -->
             <div class="add-comment-section">
                 <h3>Share Your Thoughts</h3>
                 <form id="comment-form" class="comment-form">
-                    <input type="text" id="comment-name" placeholder="Your Name" required>
-                    <textarea id="comment-text" placeholder="What do you think about ORQL?" rows="3" required></textarea>
+                    <input type="text" id="comment-name" placeholder="Your Name" name="name" required>
+                    <textarea id="comment-text" placeholder="What do you think about ORQL?" name="message" rows="3" required></textarea>
                     <div class="form-footer">
                         <span class="char-count"><span id="char-current">0</span>/280</span>
                         <button type="submit" class="submit-comment">Post Comment</button>
@@ -96,9 +98,9 @@
                     <h3>General Inquiries</h3>
                     <p>Questions about ORQL, collaborations, or just want to chat?</p>
                     <form class="contact-form">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="Your Message" rows="4" required></textarea>
+                        <input type="text" placeholder="Your Name" name="name" required>
+                        <input type="email" placeholder="Your Email" name="email" required>
+                        <textarea placeholder="Your Message" name="message" rows="4" required></textarea>
                         <button type="submit" class="cta-button primary-button">Send Message</button>
                     </form>
                 </div>
@@ -108,16 +110,16 @@
                     <h3>Join the Community</h3>
                     <p>Become part of the ORQL research community</p>
                     <form class="join-form" id="join-community-form">
-                        <input type="text" placeholder="Name" required>
-                        <input type="email" placeholder="Email" required>
-                        <select required>
+                        <input type="text" placeholder="Name" name="name" required>
+                        <input type="email" placeholder="Email" name="email" required>
+                        <select name="interest" required>
                             <option value="">I'm interested in...</option>
                             <option value="research">Research & Theory</option>
                             <option value="coding">Coding & Simulations</option>
                             <option value="philosophy">Philosophy & Implications</option>
                             <option value="learning">Learning & Discussion</option>
                         </select>
-                        <textarea placeholder="Tell us about your interest in ORQL (optional)" rows="3"></textarea>
+                        <textarea placeholder="Tell us about your interest in ORQL (optional)" name="message" rows="3"></textarea>
                         <button type="submit" class="cta-button secondary-button">Join Community</button>
                     </form>
                 </div>
@@ -141,7 +143,7 @@
                     <p>Get monthly insights on ORQL developments, new simulations, and community highlights</p>
                 </div>
                 <form class="newsletter-form" id="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required>
+                    <input type="email" placeholder="Enter your email" name="email" required>
                     <button type="submit" class="newsletter-button">Subscribe</button>
                 </form>
             </div>
@@ -180,8 +182,13 @@
 
     <!-- Footer -->
     <div id="footer-container"></div>
-    <!-- Comment Moderation & Analytics Script -->
-    <script src="js/contact-community.js"></script>
+    
+    <!-- Firebase & Analytics Scripts -->
+    <script type="module" src="js/firebase-init.js"></script>
+    <script type="module" src="js/stats-manager.js"></script>
+    <script type="module" src="js/contact-community.js"></script>
+    
+    <!-- Original Scripts -->
     <script src="js/ui.js"></script>
     <script src="js/components.js"></script>
 </body>
